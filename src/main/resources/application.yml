@@ -1,0 +1,45 @@
+# aliyun rocket mq 配置格式
+
+rocketMq:
+    nameSrvAddr:
+    access-key:
+    secret-key:
+
+    bindings:
+        producers:
+            p1:
+                topic:
+                tag: 'Tag1'
+                groupId:
+                type: normal
+
+            p2:
+                topic:
+                tag: 'Tag2'
+                groupId:
+                type: order
+
+            p3:
+                topic:
+                tag: 'Tag3'
+                groupId:
+                type: transaction
+
+        consumers:
+            c1:
+                topic:
+                subExpression: 'Tag1'
+                groupId:
+                type: normal
+
+            c2:
+                topic:
+                subExpression: 'Tag2'
+                groupId:
+                type: order
+
+            c3:
+                topic:
+                subExpression: 'Tag3'
+                groupId:
+                type: transaction
