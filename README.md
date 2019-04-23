@@ -8,5 +8,5 @@
 ## 2. 说明
 此项目是 `spring-rocketmq-starter`的demo示例。
 具体使用说明请看
-[`spring-rocketmq-starter`](https://github.com/wangpeijian/spring-rocketmq-starter, "spring-rocketmq-starter")
+[`spring-rocketmq-starter`](https://github.com/wangpeijian/spring-rocketmq-starter "spring-rocketmq-starter")
 项目介绍。
