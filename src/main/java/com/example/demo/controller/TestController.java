@@ -2,8 +2,6 @@ package com.example.demo.controller;
 
 import com.aliyun.openservices.ons.api.transaction.TransactionStatus;
 import com.example.demo.service.TestProducer;
-import com.example.demo.service.TestProducerOrder;
-import com.example.demo.service.TestProducerTransaction;
 import com.wpj.spring.boot.rocketmq.starter.channel.ChannelNormal;
 import com.wpj.spring.boot.rocketmq.starter.channel.ChannelOrder;
 import com.wpj.spring.boot.rocketmq.starter.channel.ChannelTransaction;
@@ -26,13 +24,6 @@ public class TestController {
     // 使用接口方式调用
     @Autowired
     TestProducer testProducer;
-
-    @Autowired
-    TestProducerOrder testProducerOrder;
-
-    @Autowired
-    TestProducerTransaction testProducerTransaction;
-
 
     // 从生产者仓库获取
     @Autowired
@@ -64,8 +55,8 @@ public class TestController {
 
         //三种发送方式
         testProducer.sendNormal(msg);
-        channelRepertory.getChannelNormal("p1").send(msg);
-        p1.send(msg);
+//        channelRepertory.getChannelNormal("p1").send(msg);
+//        p1.send(msg);
     }
 
     /**
@@ -80,10 +71,9 @@ public class TestController {
         msg.put("title", "测试消息");
         msg.put("content", "其他内容");
 
-        testProducerOrder.sendTest(msg, "test");
-        channelRepertory.getChannelOrder("p2").send(msg, "test");
-        p2.send(msg, "test");
-
+        testProducer.sendOrder(msg, "test");
+//        channelRepertory.getChannelOrder("p2").send(msg, "test");
+//        p2.send(msg, "test");
     }
 
     /**
@@ -101,8 +91,8 @@ public class TestController {
         msg.put("title", "测试消息");
         msg.put("content", "其他内容");
 
-        testProducerTransaction.sendTest(msg, (msg1, arg) -> TransactionStatus.Unknow, new Object());
-        channelRepertory.getChannelTransaction("p3").send(msg, (msg1, arg) -> TransactionStatus.Unknow, new Object());
-        p3.send(msg, (msg1, arg) -> TransactionStatus.Unknow, new Object());
+        testProducer.sendTransaction(msg, (msg1, arg) -> TransactionStatus.Unknow, new Object());
+//        channelRepertory.getChannelTransaction("p3").send(msg, (msg1, arg) -> TransactionStatus.Unknow, new Object());
+//        p3.send(msg, (msg1, arg) -> TransactionStatus.Unknow, new Object());
     }
 }
