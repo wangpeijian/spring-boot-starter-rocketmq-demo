@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @auther wangpejian
+ * @author wangpejian
  * @date 19-4-22 下午4:23
  */
 @RestController()

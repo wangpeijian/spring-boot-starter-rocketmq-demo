@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 /**
  * 事务消息的checker注册
  *
- * @auther wangpejian
+ * @author wangpejian
  * @date 19-2-14 上午10:38
  */
 @Slf4j
@@ -30,11 +30,13 @@ public class TestChecker extends AbstractChecker {
      *
      * @return
      */
+    @Override
     public String getChannelName() {
         return "p3";
     }
 
 
+    @Override
     public TransactionStatus check(final ResponseMessage msg) {
         log.info("========事务消息check: {}, id: {}", msg.getBody());
 

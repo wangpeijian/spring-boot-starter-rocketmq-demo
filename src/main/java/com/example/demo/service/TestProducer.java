@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * 定义生产者接口，接口中的方法参数要和 @MessageSender 注解定义的方法类型，匹配
  *
- * @auther wangpejian
+ * @author wangpejian
  * @date 19-4-22 下午4:37
  */
 @ProducerChannel
