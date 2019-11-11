@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,24 +22,34 @@ import java.util.Map;
 @RequestMapping("/test")
 public class TestController {
 
-    // 使用接口方式调用
-    @Autowired
+    /**
+     * 使用接口方式调用
+     */
+    @Resource
     TestProducer testProducer;
 
-    // 从生产者仓库获取
-    @Autowired
+    /**
+     * 从生产者仓库获取
+     */
+    @Resource
     ChannelRepertory channelRepertory;
 
-    // 直接注入仓库中的生产者
-    @Autowired
+    /**
+     * 直接注入仓库中的生产者
+     */
+    @Resource
     ChannelNormal p1;
 
-    //顺序消息生产者
-    @Autowired
+    /**
+     * 顺序消息生产者
+     */
+    @Resource
     ChannelOrder p2;
 
-    //事务消息生产者
-    @Autowired
+    /**
+     * 事务消息生产者
+     */
+    @Resource
     ChannelTransaction p3;
 
     /**
@@ -49,7 +60,7 @@ public class TestController {
     @RequestMapping("/normal")
     void normal() {
 
-        Map<String, String> msg = new HashMap<>();
+        Map<String, String> msg = new HashMap<>(2);
         msg.put("title", "测试消息");
         msg.put("content", "其他内容");
 
@@ -67,7 +78,7 @@ public class TestController {
     @RequestMapping("/order")
     void order() {
 
-        Map<String, String> msg = new HashMap<>();
+        Map<String, String> msg = new HashMap<>(2);
         msg.put("title", "测试消息");
         msg.put("content", "其他内容");
 
@@ -87,7 +98,7 @@ public class TestController {
     @RequestMapping("/transaction")
     void transaction() {
 
-        Map<String, String> msg = new HashMap<>();
+        Map<String, String> msg = new HashMap<>(2);
         msg.put("title", "测试消息");
         msg.put("content", "其他内容");
 
