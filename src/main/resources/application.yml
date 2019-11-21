@@ -4,6 +4,7 @@ rocketMq:
     nameSrvAddr:
     access-key:
     secret-key:
+    base-package: com.example.demo
 
     bindings:
         producers:
