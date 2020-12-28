@@ -11,10 +11,10 @@ import java.util.Map;
  * @auther wangpejian
  * @date 19-4-1 下午4:44
  */
-@ProducerChannel("p2")
+@ProducerChannel
 public interface TestProducerOrder {
 
-    @MessageSender
+    @MessageSender(channel = "p2")
     SendResult sendTest(Map msg, String shardingKey);
 
 }

@@ -12,10 +12,10 @@ import java.util.Map;
  * @auther wangpejian
  * @date 19-4-1 下午4:44
  */
-@ProducerChannel("p3")
+@ProducerChannel
 public interface TestProducerTransaction {
 
-    @MessageSender
+    @MessageSender(channel = "p3")
     SendResult sendTest(Map msg, LocalTransactionExecuter executer, Object arg);
 
 }

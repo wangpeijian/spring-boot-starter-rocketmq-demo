@@ -30,11 +30,13 @@ public class TestChecker extends AbstractChecker {
      *
      * @return
      */
+    @Override
     public String getChannelName() {
         return "p3";
     }
 
 
+    @Override
     public TransactionStatus check(final ResponseMessage msg) {
         log.info("========事务消息check: {}, id: {}", msg.getBody());
 

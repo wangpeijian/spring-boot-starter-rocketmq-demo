@@ -15,7 +15,7 @@ import java.util.Map;
  * @auther wangpejian
  * @date 19-4-22 下午4:37
  */
-@ProducerChannel("p1")
+@ProducerChannel
 public interface TestProducer {
 
     /**
@@ -23,13 +23,13 @@ public interface TestProducer {
      * <p>
      * 消息对象可以是任意类型
      */
-    @MessageSender
+    @MessageSender(channel = "p1")
     SendResult sendNormal(Map msg);
 
-    @MessageSender(MessageType.async)
+    @MessageSender(channel = "p1", type = MessageType.async)
     SendResult sendAsync(Map msg, final SendCallback sendCallback);
 
-    @MessageSender(MessageType.oneway)
+    @MessageSender(channel = "p1", type = MessageType.oneway)
     SendResult sendOneway(Object msg);
 
 
@@ -38,12 +38,12 @@ public interface TestProducer {
      * <p>
      * timeStamp = 希望消息发送的时刻的时间戳
      */
-    @MessageSender
+    @MessageSender(channel = "p1")
     SendResult sendNormalDelay(Map msg, long timeStamp);
 
-    @MessageSender(MessageType.async)
+    @MessageSender(channel = "p1", type = MessageType.async)
     SendResult sendAsyncDelay(Map msg, final SendCallback sendCallback, long timeStamp);
 
-    @MessageSender(MessageType.oneway)
+    @MessageSender(channel = "p1", type = MessageType.oneway)
     SendResult sendOnewayDelay(Object msg, long timeStamp);
 }
